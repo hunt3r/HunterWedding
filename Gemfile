@@ -3,6 +3,7 @@ source "http://rubygems.org"
 group :development do
   gem 'rake'
   gem 'rack'
+  gem 'nokogiri'
   gem 'jekyll'
   gem 'rdiscount'
   gem 'pygments.rb'

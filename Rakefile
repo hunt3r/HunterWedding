@@ -4,9 +4,9 @@ require "stringex"
 
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
-ssh_user       = "user@domain.com"
-ssh_port       = "22"
-document_root  = "~/website.com/"
+ssh_user       = "hunter@chrishunters.com"
+ssh_port       = "22202"
+document_root  = "/var/www/hunterwedding/"
 rsync_delete   = true
 deploy_default = "rsync"
 
@@ -33,7 +33,7 @@ task :install, :theme do |t, args|
     abort("rake aborted!") if ask("A theme is already installed, proceeding will overwrite existing files. Are you sure?", ['y', 'n']) == 'n'
   end
   # copy theme into working Jekyll directories
-  theme = args.theme || 'classic'
+  theme = args.theme || 'hunter'
   puts "## Copying "+theme+" theme into ./#{source_dir} and ./sass"
   mkdir_p source_dir
   cp_r "#{themes_dir}/#{theme}/source/.", source_dir
