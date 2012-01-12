@@ -10,7 +10,7 @@
 
 module Jekyll
 
-  class VideoTag < Liquid::Tag
+  class FlickrTag < Liquid::Tag
 
     def initialize(tag_name, config, token)
       super
@@ -23,12 +23,11 @@ module Jekyll
 
     def render(context)
       output = super
-      if @video
-        video =  "<video width='#{@width}' height='#{@height}' preload='none' controls poster='#{@poster}'>"
-        video += "<source src='#{@video}' type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'/></video>"
-      else
-        "Error processing input, expected syntax: {% video url/to/video [width height] [url/to/poster] %}"
-      end
+      <<-EOF
+      <p data-set-id="#{@set}" data-user="#{@user}" class="gallery-#{@float}">
+        <!-- Built client-side -->
+      </p>
+      EOF
     end
   end
 end

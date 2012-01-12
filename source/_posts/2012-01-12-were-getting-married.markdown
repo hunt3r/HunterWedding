@@ -16,3 +16,5 @@ Hello! Laura and I are gettin' hitched.  Our little romance has been going stron
 Welcome to our blog. Here we will outline the process and details of our wedding, scheduled for the evening of August 25, 2012 at Valley Green Inn (Philadelphia, PA). 
 
 More to information to come!
+
+{% flickr motoprog 72157628832117953 right %}

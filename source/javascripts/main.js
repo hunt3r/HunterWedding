@@ -1,6 +1,10 @@
 hw.Constants = {
 	FLICKR : {
-		APIKEY : "c0b4855caf10787f53e5e94d1dc8d1cd"
+		USERS : {
+			"motoprog" : {
+				APIKEY : "c0b4855caf10787f53e5e94d1dc8d1cd"
+			}
+		}
 	}
 }
 
