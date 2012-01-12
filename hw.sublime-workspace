@@ -60,10 +60,10 @@
 			}
 		},
 		{
-			"file": "source/javascripts/modules/flickr.module.js",
+			"file": "plugins/flickr.rb",
 			"settings":
 			{
-				"buffer_size": 1611,
+				"buffer_size": 875,
 				"line_ending": "Unix"
 			}
 		},
@@ -128,6 +128,7 @@
 	},
 	"file_history":
 	[
+		"/Users/hunter/Documents/Projects/HunterWedding/source/javascripts/modules/flickr.module.js",
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/docroot/js/orion/modules/LiveChannels.js",
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/docroot/js/orion/modules/SampleModule.js",
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/bin/uatdeploy.py",
@@ -254,8 +255,7 @@
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/searchresults/i18n/en_nl.xml",
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/settings/i18n/en_nl.xml",
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/templates/homepage/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/utilitybar/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/videoplayer/i18n/en_nl.xml"
+		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/utilitybar/i18n/en_nl.xml"
 	],
 	"find":
 	{
@@ -515,23 +515,25 @@
 				},
 				{
 					"buffer": 2,
-					"file": "source/javascripts/modules/flickr.module.js",
+					"file": "plugins/flickr.rb",
 					"settings":
 					{
-						"buffer_size": 1611,
+						"buffer_size": 875,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								246,
-								246
+								373,
+								373
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

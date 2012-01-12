@@ -2,22 +2,23 @@
 # Author: Chris Hunter http://chrishunters.com
 # Description: Create client side galleries for flickr
 #
-# Syntax {% flickr set user float %}
+# Syntax {% flickr user set float %}
 #
 # Example:
-# {% flickr 89892382989828992 youruser right %}
+# {% flickr someuser 89892382989828992 right %}
 #
 
 module Jekyll
 
   class VideoTag < Liquid::Tag
-    @set_id = ''
-    @user = ''
-    @float = ''
 
-    def initialize(tag_name, markup, tokens)
-
+    def initialize(tag_name, config, token)
       super
+
+      @user = config.split[0]
+      @set  = config.split[1]
+      @float = config.split[2]
+
     end
 
     def render(context)
