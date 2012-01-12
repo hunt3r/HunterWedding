@@ -10,7 +10,6 @@ hw.modules.Flickr = (function($) {
 	Flickr.prototype.View = (function() {
 		function View(container, data) {
 			var self = this;
-			self.
 		}
 
 		View.prototype.updateGallery = function updateGallery() {
