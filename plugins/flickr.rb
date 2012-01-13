@@ -7,11 +7,11 @@
 # Example:
 # {% flickr someuser 89892382989828992 right %}
 #
-
+require './plugins/raw'
 module Jekyll
 
   class FlickrTag < Liquid::Tag
-
+    include TemplateWrapper
     def initialize(tag_name, config, token)
       super
 
@@ -23,11 +23,12 @@ module Jekyll
 
     def render(context)
       output = super
-      <<-EOF
-      <p data-set-id="#{@set}" data-user="#{@user}" class="gallery-#{@float}">
+      template = <<-EOF
+      <div data-module="flickr-set" data-set-id="id-#{@set}" id="#{@set}" data-user="#{@user}" class="flickr-set flickr-gallery flickr-gallery-#{@float}">
         <!-- Built client-side -->
-      </p>
+      </div>
       EOF
+      safe_wrap(template)
     end
   end
 end
