@@ -5,6 +5,7 @@ hw.modules.Flickr = (function($) {
 		console.log("Flickr module init.");
 		self.init();
 	}
+
 	Flickr.prototype.init = function() {
 		var self = this;
 		self.galleries = [];
@@ -13,19 +14,9 @@ hw.modules.Flickr = (function($) {
 			var user = $elem.data('user');
 			var set_id = $elem.data('set-id').replace("id-", "");
 
-
 			console.log("Found gallery set for user: " + user );
-
 			var model = new self.Model(user, set_id);
-			$.when(model.getData())
-			   .then(function(){
-			      console.log( 'I fire after ajax' );
-			      var view = new self.View($elem, model);
-			   })
-			   .fail(function(){
-			      console.log( 'I fire if one or more requests failed.' );
-			   });
-			
+			var view = new self.View($elem, model);
 
 			self.galleries.push({"view": view, "model":model});
 
@@ -37,29 +28,39 @@ hw.modules.Flickr = (function($) {
 			var self = this;
 			self.model=model;
 			self.$elem=$elem;
-
-
+			$(model).bind("flickrLoaded", function(){
+				self.updateGallery();
+			});
 		}
 
 		View.prototype.updateGallery = function updateGallery() {
-			$.each(data.photoset.photo, function(i,photo){
-				var src = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "s.jpg";
-				var a_href = "http://www.flickr.com/photos/" + data.photoset.owner + "/" + photo.id + "/";
-				model = {
-					"link" : a_href,
-					"img" : { "src" : src }
+			var self = this;
+			if(self.model.data && self.model.data.photoset) {
+				console.log(self.model.data);
+				// Make sure we have a photo set
+				var photos = [];
+				$.each(self.model.data.photoset.photo, function(i,photo){
+					var src = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "s.jpg";
+					var href = "http://www.flickr.com/photos/" + self.model.data.photoset.owner + "/" + photo.id + "/";
+					
+					var photo = {
+						"a"   : { "href" : href},
+						"img" : { "src"  : src }
 					};
+					photos.push(photo);
+				});
+
+				model = {"photos" : photos};
 				console.log(model);
-				//var html = Mustache.to_html(template, person);
+				var template = hw.templates.FlickrPhotoset;
+				var html = Mustache.to_html(template, model);
 
-				//PLACE IMAGE IN IMAGE TAG AND APPEND TO IMAGES DIV 
-				//$("<img/>").attr("src", img_src).appendTo("#content");
-
-				// //WRAP IN LINK
-				// .wrap(("<a href='" + a_href + "'></a>"));
-			});
-
+				//Apend to view
+				self.$elem.append(html);
+			}
 		};
+
+		return View;
 	})();
 
 	Flickr.prototype.Model = (function() {
@@ -69,19 +70,20 @@ hw.modules.Flickr = (function($) {
 			self.data;
 			self.user = user;
 			self.setId = setId;
+			self.getData();
 		}
 
 		Model.prototype.getData = function() {
 			var self = this;
-			var apikey = self.constants.FLICKR.USERS[user] && self.constants.FLICKR.USERS[self.user].APIKEY;
+			var apikey = self.constants.FLICKR.USERS[self.user] && self.constants.FLICKR.USERS[self.user].APIKEY;
 			
 			if(apikey) {
 				var apiCall = "http://api.flickr.com/services/rest/?format=json&method=flickr.photosets.getPhotos&photoset_id="+self.setId+"&per_page=10&page=1&api_key="+apikey+"&jsoncallback=?";
 				
 				//Get the JSONP data via XHR 
 				$.getJSON(apiCall, function(data){
-					var self = this;
 					self.data = data;
+					$(self).trigger("flickrLoaded");
 				});
 			}
 		}

@@ -15,16 +15,17 @@ module Jekyll
     def initialize(tag_name, config, token)
       super
 
-      @user = config.split[0]
-      @set  = config.split[1]
+      @user  = config.split[0]
+      @set   = config.split[1]
       @float = config.split[2]
+      @containerWidth = config.split[3] || "auto"
 
     end
 
     def render(context)
       output = super
       template = <<-EOF
-      <div data-module="flickr-set" data-set-id="id-#{@set}" id="#{@set}" data-user="#{@user}" class="flickr-set flickr-gallery flickr-gallery-#{@float}">
+      <div style="width:#{@containerWidth}px" data-module="flickr-set" data-set-id="id-#{@set}" id="#{@set}" data-user="#{@user}" class="flickr-set flickr-gallery flickr-gallery-#{@float}">
         <!-- Built client-side -->
       </div>
       EOF

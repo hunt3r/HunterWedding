@@ -12,3 +12,16 @@ html {
 td img {
 	display: block;
 }
+
+.flickr-gallery {
+	ul li {
+		list-style: none;
+		display: inline-block;
+		margin: 0 .5em .5em 0;
+	}
+
+}
+.flickr-gallery-right {
+	float: right;
+	
+}
