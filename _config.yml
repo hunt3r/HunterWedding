@@ -3,8 +3,8 @@
 # ----------------------- #
 
 url: http://wedding.chrishunters.com
-title: Chris & Laura's Wedding
-subtitle: Idddgggggggg
+title: Chris Hunter & Laura Butler
+subtitle: Our Wedding
 author: Your Name
 simple_search: http://google.com/search
 description:
@@ -73,7 +73,7 @@ flickr_set:
 
 # Twitter
 twitter_user: motoprog
-twitter_tweet_count: 2
+twitter_tweet_count: 0
 twitter_show_replies: false
 twitter_follow_button: true
 twitter_show_follower_count: false
@@ -82,7 +82,7 @@ twitter_tweet_button: true
 
 
 # Google +1
-google_plus_one: true
+google_plus_one: false
 google_plus_one_size: medium
 
 # Google Plus Profile

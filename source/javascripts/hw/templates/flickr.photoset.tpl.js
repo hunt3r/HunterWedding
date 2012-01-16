@@ -6,12 +6,11 @@ tpl.push('<ul>');
 tpl.push('{{#photos}}');
 tpl.push('<li class="photo">');
 tpl.push(	'<div class="photo-inner">');
-tpl.push(		'<a href="{{a.href}}">');
-tpl.push(			'<img src="{{img.src}}" />');
+tpl.push(		'<a class="fancybox-thumb" title="{{photo.title}}" rel="fancybox" href="{{photo.url_l}}" data-photo-id="{{photo.id}}">');
+tpl.push(			'<img src="{{img.src}}" width="93" height="93" />'); 
 tpl.push(		'</a>');
-tpl.push(	'</div>')
-tpl.push(	'<div class="social"></div>')
-tpl.push('</li>')
+tpl.push(	'</div>');
+tpl.push('</li>');
 tpl.push('{{/photos}}');
 tpl.push('</ul>');
 
