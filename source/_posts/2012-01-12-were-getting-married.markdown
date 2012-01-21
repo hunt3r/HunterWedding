@@ -18,5 +18,8 @@ Welcome to our blog. Here we will outline the process and details of our wedding
 
 More to information to come!
 
-{% flickr motoprog 72157628832117953 none %}
+{% flickr motoprog 72157628832117953 10 none %}
+
+{% flickr motoprog 72157628948325569 30 none %}
+
 

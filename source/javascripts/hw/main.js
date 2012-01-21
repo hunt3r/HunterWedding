@@ -12,7 +12,7 @@ hw.Constants = {
 hw.Main = (function() {
 	function Main() {
 		var self = this;
-		self.flickrGalleries = new hw.modules.Flickr();
+		self.flickrGalleries = new hw.collections.Flickr.PhotoSets();
 	}
 	return Main;
 })();

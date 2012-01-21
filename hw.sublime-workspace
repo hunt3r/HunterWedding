@@ -44,71 +44,31 @@
 	"buffers":
 	[
 		{
-			"file": "source/javascripts/templates/flickr.photoset.tpl.js",
+			"file": "/Users/hunter/Library/Application Support/Sublime Text 2/Packages/User/octopress.sublime-build",
 			"settings":
 			{
-				"buffer_size": 423,
+				"buffer_size": 99,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "source/javascripts/modules/flickr.module.js",
+			"file": "config.rb",
 			"settings":
 			{
-				"buffer_size": 2483,
+				"buffer_size": 349,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "source/javascripts/main.js",
+			"file": "/Users/hunter/.bash_profile",
 			"settings":
 			{
-				"buffer_size": 375,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "secrets",
-			"settings":
-			{
-				"buffer_size": 65,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "source/_posts/2012-01-12-were-getting-married.markdown",
-			"settings":
-			{
-				"buffer_size": 604,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "plugins/flickr.rb",
-			"settings":
-			{
-				"buffer_size": 961,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "source/_includes/head.html",
-			"settings":
-			{
-				"buffer_size": 2271,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "sass/custom/_styles.scss",
-			"settings":
-			{
-				"buffer_size": 385,
+				"buffer_size": 1180,
 				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "Packages/User/JSLint.sublime-build",
+	"build_system": "Packages/User/octopress.sublime-build",
 	"command_palette":
 	{
 		"height": 392.0,
@@ -136,6 +96,25 @@
 	},
 	"file_history":
 	[
+		"/Users/hunter/.bash_profile",
+		"/Users/hunter/Dropbox/HunterWedding/hw.sublime-workspace",
+		"/Users/hunter/Library/Application Support/Sublime Text 2/Packages/User/JSLint.sublime-build",
+		"/Users/hunter/Dropbox/HunterWedding/Rakefile",
+		"/Users/hunter/Dropbox/HunterWedding/source/_posts/2012-01-15-reception-information.markdown",
+		"/Users/hunter/Dropbox/HunterWedding/source/_posts/2012-01-12-were-getting-married.markdown",
+		"/Users/hunter/Dropbox/HunterWedding/_config.yml",
+		"/Users/hunter/Library/Application Support/Sublime Text 2/Packages/User/octopress.sublime-build",
+		"/Users/hunter/Dropbox/HunterWedding/config.rb",
+		"/Users/hunter/bin/environmentPlist.py",
+		"/Users/hunter/.MacOSX/environment.plist",
+		"/Users/hunter/Dropbox/HunterWedding/sass/custom/_styles.scss",
+		"/Users/hunter/Dropbox/HunterWedding/source/_includes/head.html",
+		"/Users/hunter/Dropbox/HunterWedding/plugins/flickr.rb",
+		"/Users/hunter/Dropbox/HunterWedding/secrets",
+		"/Users/hunter/Dropbox/HunterWedding/source/javascripts/main.js",
+		"/Users/hunter/Dropbox/HunterWedding/source/javascripts/modules/flickr.module.js",
+		"/Users/hunter/Dropbox/HunterWedding/source/javascripts/templates/flickr.photoset.tpl.js",
+		"/Users/hunter/Documents/Projects/HunterWedding/_config.yml",
 		"/Users/hunter/Documents/Projects/HunterWedding/source/javascripts/templates/twitter.photoset.tpl.js",
 		"/Users/hunter/Documents/Projects/HunterWedding/plugins/image_tag.rb",
 		"/Users/hunter/Documents/Projects/HunterWedding/plugins/flickr.rb",
@@ -157,7 +136,6 @@
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-core/src/main/java/com/day/orion/web/adapters/templates/HomePage.java",
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/docroot/js/orion/modules/untitled",
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/bin/qadeploy",
-		"/Users/hunter/.bash_profile",
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-testpages/src/main/content/jcr_root/content/orion_upc_nl/en_nl/movies/all-movies/.content.xml",
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-testpages/src/main/content/jcr_root/content/orion_upc_nl/en_nl/movies/generes/.content.xml",
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-testpages/src/main/content/jcr_root/content/orion_upc_nl/en_nl/movies/most-popular/.content.xml",
@@ -245,25 +223,7 @@
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/bin/main/content/jcr_root/apps/orion/components/settings/i18n/en_nl.xml",
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/bin/main/content/jcr_root/apps/orion/components/templates/homepage/i18n/en_nl.xml",
 		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/bin/main/content/jcr_root/apps/orion/components/utilitybar/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/bin/main/content/jcr_root/apps/orion/components/videoplayer/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/channelcard/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/contentbrowse/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/contentdiscovery/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/EPG/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/euprivacy/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/footer/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/genericaspot/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/genericcontentcontainer/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/genericcontentparagraph/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/horizoninspiredaspot/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/mediagrouptitlecard/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/mediaitemtitlecard/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/megadropdown/livechannels/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/megadropdown/movies/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/megadropdown/store/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/megadropdown/tvguide/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/megadropdown/tvshows/i18n/en_nl.xml",
-		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/src/main/content/jcr_root/apps/orion/components/myorionbar/i18n/en_nl.xml"
+		"/Users/hunter/Documents/Projects/workspaces/liberty/working/orion-content/bin/main/content/jcr_root/apps/orion/components/videoplayer/i18n/en_nl.xml"
 	],
 	"find":
 	{
@@ -271,7 +231,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"<open folders>,-*/bin/*",
@@ -464,28 +424,28 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "source/javascripts/templates/flickr.photoset.tpl.js",
+					"file": "/Users/hunter/Library/Application Support/Sublime Text 2/Packages/User/octopress.sublime-build",
 					"settings":
 					{
-						"buffer_size": 423,
+						"buffer_size": 99,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								251,
-								251
+								99,
+								99
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -495,24 +455,23 @@
 				},
 				{
 					"buffer": 1,
-					"file": "source/javascripts/modules/flickr.module.js",
+					"file": "config.rb",
 					"settings":
 					{
-						"buffer_size": 2483,
+						"buffer_size": 349,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1655,
-								1655
+								298,
+								298
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -522,158 +481,23 @@
 				},
 				{
 					"buffer": 2,
-					"file": "source/javascripts/main.js",
+					"file": "/Users/hunter/.bash_profile",
 					"settings":
 					{
-						"buffer_size": 375,
+						"buffer_size": 1180,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								115,
-								115
+								1180,
+								1180
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "secrets",
-					"settings":
-					{
-						"buffer_size": 65,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5,
-								37
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "source/_posts/2012-01-12-were-getting-married.markdown",
-					"settings":
-					{
-						"buffer_size": 604,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								598,
-								598
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "plugins/flickr.rb",
-					"settings":
-					{
-						"buffer_size": 961,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								654,
-								654
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 35.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "source/_includes/head.html",
-					"settings":
-					{
-						"buffer_size": 2271,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1940,
-								1940
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "sass/custom/_styles.scss",
-					"settings":
-					{
-						"buffer_size": 385,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								340,
-								340
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/sublime-text-haml-sass/SASS/Syntaxes/SASS.tmLanguage"
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -715,6 +539,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 512.0
+	},
 	"replace":
 	{
 		"height": 62.0

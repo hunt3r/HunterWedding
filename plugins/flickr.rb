@@ -17,16 +17,22 @@ module Jekyll
 
       @user  = config.split[0]
       @set   = config.split[1]
-      @float = config.split[2]
-      @containerWidth = config.split[3] || "auto"
+      @per_page = config.split[2] || "12"
+      @float = config.split[3]
+      @containerWidth = config.split[4] || "auto"
 
     end
 
     def render(context)
       output = super
       template = <<-EOF
-      <div style="width:#{@containerWidth}px" data-module="flickr-set" data-set-id="id-#{@set}" id="#{@set}" data-user="#{@user}" class="flickr-set flickr-gallery flickr-gallery-#{@float}">
-        <!-- Built client-side -->
+      <div style="width:#{@containerWidth}px" 
+            data-module="flickr-set" 
+            data-set-id="id-#{@set}" 
+            data-per-page="#{@per_page}" 
+            id="#{@set}" data-user="#{@user}" 
+            class="flickr-photo-set flickr-gallery flickr-gallery-#{@float}">
+        <!-- Built client-side see: flickr PhotoSet module/template-->
       </div>
       EOF
       safe_wrap(template)
