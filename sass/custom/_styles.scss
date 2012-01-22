@@ -14,10 +14,14 @@ td img {
 }
 
 .flickr-gallery {
+	margin-bottom: 1em;
 	ul li {
 		list-style: none;
 		display: inline-block;
 		margin: 0 .5em .5em 0;
+	}
+	ul {
+		margin-bottom: .5em;
 	}
 
 }
@@ -28,4 +32,27 @@ td img {
 .fancybox-close, .fancybox-prev span, .fancybox-next span {
 	background: none;
 	border: none;
+}
+
+.pager .page {
+	$borderRadius : 4px;
+	margin: 4px;
+	padding: 4px;
+	-moz-border-radius: $borderRadius;
+    -webkit-border-radius: $borderRadius;
+    border-radius: $borderRadius;
+    background: $base2;
+    cursor: pointer;
+}
+
+.overlay {
+	div div div div div div div, div div div div div div, div div div div div, div div div, div div, div{
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+	img {
+		float: right;
+		margin: .5em;
+	}
+	padding: .5em;
 }

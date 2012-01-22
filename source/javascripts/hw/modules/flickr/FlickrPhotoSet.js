@@ -2,6 +2,12 @@
  * Flickr.PhotoSet
  * This module maps to the functionality of a Flickr PhotoSet
  */
+
+ //TODO:
+ /*
+  -- Add animations to paging changes
+  -- Add hide/show caching routine to minimize network calls to pages
+ */
 hw.collections.Flickr.PhotoSets = (function($) {
 	function PhotoSets() {
 		var self = this;
@@ -10,7 +16,7 @@ hw.collections.Flickr.PhotoSets = (function($) {
 		$(self.photosetSelector).each(function(index) {
 			self.photoSets.push(new hw.modules.Flickr.PhotoSet(this));
 		});
-		console.log("Done adding Flickr Photo Sets");
+		console.log("Flickr PhotoSets Collection Initialized");
 	}
 	return PhotoSets;
 })(jQuery);
@@ -22,16 +28,15 @@ hw.modules.Flickr.PhotoSet = (function($) {
 		self.$elem = $(elem);
 		self.actionsBound = false;
 
-		self.model = new self.Model(self.$elem);
+		self.model = new hw.models.Flickr.PhotoSet(self.$elem);
 		self.view = new self.View(self.model);
 	
 		$(self.view).bind("viewLoaded"+self.model.setId, function() {
-
 			if(!self.actionsBound) {
 				self.bindActions();
 			}
 		});
-		console.log("new Flickr PhotoSet Initialized");
+		console.log("New Flickr PhotoSet Initialized");
 	}
 	
 	PhotoSet.prototype.bindActions = function() {
@@ -72,16 +77,6 @@ hw.modules.Flickr.PhotoSet = (function($) {
 			var self = this;
 			if(self.model.data && self.model.data.photoset) {
 
-				// Make sure we have a photo set
-				// var photos = [];
-				// $.each(self.model.data.photoset.photo, function(i, photo){
-				// 	var src = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "s.jpg";
-				// 	var href = "http://www.flickr.com/photos/" + self.model.data.photoset.owner + "/" + photo.id + "/";
-					
-				// 	var _photo = { "photo" : photo, "a"  : { "href" : href}, "img" : { "src"  : src } };
-				// 	photos.push(_photo);
-				// });
-
 				pager = [];
 				for(var i=1; i<=self.model.data.photoset.pages; i++) {
 					pager[i-1] = {page: i, page_label: i};
@@ -104,48 +99,54 @@ hw.modules.Flickr.PhotoSet = (function($) {
 
 		return View;
 	})();
-
-	PhotoSet.prototype.Model = (function() {
-		
-		function Model($elem) {
-			var self = this;
-			self.$elem = $elem;
-			self.constants = hw.Constants;
-			self.user = self.$elem.data('user');
-			self.setId = self.$elem.data('set-id').replace("id-", "");
-			self.perPage = (self.$elem.data('per-page')) ? self.$elem.data('per-page') : 12;
-			self.data;
-			self.api_key = self.constants.FLICKR.USERS[self.user] && self.constants.FLICKR.USERS[self.user].APIKEY;
-			self.page = 1;
-			self.getData();
-		}
-
-		Model.prototype.setPage = function(page) {
-			var self = this;
-			self.page = page;
-			console.log("new Page",self.page);
-			self.getData();
-		};
-
-		Model.prototype.getData = function() {
-			var self = this;
-			
-			if(self.api_key) {
-				var apiCall = "http://api.flickr.com/services/rest/?format=json&extras=url_sq,url_t,url_s,url_m,url_l&\
-								method=flickr.photosets.getPhotos&photoset_id="+self.setId+"\
-								&per_page="+self.perPage+"&page="+self.page+"&api_key="+self.api_key+"&jsoncallback=?";
-
-				//Get the JSONP data via XHR 
-				$.getJSON(apiCall, function(data){
-					self.data = data;
-					console.log(data);
-					$(self).trigger("modelLoaded"+self.setId);
-				});
-			}
-		};
-
-		return Model;
-	})();
-
+	
 	return PhotoSet;
 })(jQuery);
+
+
+//Generic photoset model, currently used in 
+//Photoset gallery
+//Google Map Flickr mashup
+hw.models.Flickr.PhotoSet = (function($) {
+
+	function Model($elem) {
+		var self = this;
+		self.$elem = $elem;
+		self.constants = hw.Constants;
+		self.user = self.$elem.data('user');
+		self.setId = self.$elem.data('set-id').replace("id-", "");
+		self.perPage = (self.$elem.data('per-page')) ? self.$elem.data('per-page') : 12;
+		self.data;
+		self.api_key = self.constants.FLICKR.USERS[self.user] && self.constants.FLICKR.USERS[self.user].APIKEY;
+		self.page = 1;
+		self.getData();
+	}
+
+	Model.prototype.setPage = function(page) {
+		var self = this;
+		self.page = page;
+		console.log("new Page",self.page);
+		self.getData();
+	};
+
+	Model.prototype.getData = function() {
+		var self = this;
+		
+		if(self.api_key) {
+			var apiCall = "http://api.flickr.com/services/rest/?format=json&extras=geo,url_sq,url_t,url_s,url_m,url_l&\
+							method=flickr.photosets.getPhotos&photoset_id="+self.setId+"\
+							&per_page="+self.perPage+"&page="+self.page+"&api_key="+self.api_key+"&jsoncallback=?";
+
+			//Get the JSONP data via XHR 
+			$.getJSON(apiCall, function(data){
+				self.data = data;
+				console.log(data);
+				$(self).trigger("modelLoaded"+self.setId);
+			});
+		}
+	};
+
+
+	return Model;
+})(jQuery);
+

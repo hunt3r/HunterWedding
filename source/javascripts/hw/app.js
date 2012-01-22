@@ -9,3 +9,4 @@ hw.collections = {};
 hw.modules.Flickr = {};
 hw.templates.Flickr = {};
 hw.collections.Flickr = {};
+hw.models.Flickr = {};
