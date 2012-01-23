@@ -45,14 +45,40 @@ td img {
     cursor: pointer;
 }
 
-.overlay {
-	div div div div div div div, div div div div div div, div div div div div, div div div, div div, div{
-		overflow-x: hidden;
-		overflow-y: hidden;
-	}
+.map-marker-overlay {
 	img {
 		float: right;
 		margin: .5em;
 	}
 	padding: .5em;
+}
+
+.flickr-map-photo-set-wrap {
+	.flickr-map-photo-set {
+		position: relative;
+		margin-bottom: 1em;
+		overflow: visible;
+	}
+	.carousel-wrap {
+		position: relative;
+		.next, .prev {
+			position: absolute;
+			top: 0;
+			line-height:100px;
+			height: 100px;
+			width: 40px;
+			cursor: pointer;
+		}
+		.next { 
+			text-align: right;
+			right: 0;
+		}
+		.prev {
+			text-align: left;
+			left: 0;
+		}
+		.carousel {
+			margin: 0 0 1em 30px;
+		}
+	}
 }

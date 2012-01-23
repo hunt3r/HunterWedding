@@ -23,13 +23,15 @@ module Jekyll
     def render(context)
       output = super
       template = <<-EOF
-      <div style="min-width:#{@containerWidth}; max-width:893px; height:#{@containerHeight}" 
-            data-module="flickr-set" 
-            data-set-id="id-#{@set}" 
-            data-per-page="#{@per_page}" 
-            id="flickrmap-#{@set}" data-user="#{@user}" 
-            class="flickr-map-photo-set flickr-gallery-#{@float}">
-        <!-- Built client-side see: flickr PhotoSet module/template-->
+      <div class="flickr-map-photo-set-wrap">
+        <div style="min-width:#{@containerWidth}; max-width:893px; height:#{@containerHeight}" 
+              data-module="flickr-set" 
+              data-set-id="id-#{@set}" 
+              data-per-page="#{@per_page}" 
+              id="flickrmap-#{@set}" data-user="#{@user}" 
+              class="flickr-map-photo-set flickr-gallery-#{@float}">
+          <!-- Built client-side see: flickr PhotoSet module/template-->
+        </div>
       </div>
       EOF
       safe_wrap(template)

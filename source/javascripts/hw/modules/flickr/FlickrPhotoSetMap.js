@@ -11,6 +11,7 @@
 hw.collections.Flickr.GoogleMapPhotoSets = (function($) {
 	function GoogleMapPhotoSets() {
 		var self = this;
+		
 		self.photosetSelector = '.flickr-map-photo-set';
 		self.googlePhotoSets = [];
 		$(self.photosetSelector).each(function(index) {
@@ -29,22 +30,18 @@ hw.modules.Flickr.GoogleMapPhotoSet = (function($) {
 		self.$elem = $(elem);
 		self.actionsBound = false;
 
+		self.photoSelectorParent = '.flickr-map-photo-set-wrap';
+
 		self.model = new hw.models.Flickr.PhotoSet(self.$elem);
+		self.model.$parent = $(self.photoSelectorParent);
 		self.view = new self.View(self.model);
 	
 		$(self.view).bind("viewLoaded"+self.model.setId, function() {
-			if(!self.actionsBound) {
-				self.bindActions();
-			}
+			//Do something after the view loads...
 		});
+
 		console.log("New Flickr GoogleMapPhotoSet Initialized");
 	}
-	
-	GoogleMapPhotoSet.prototype.bindActions = function() {
-		var self = this;
-
-		self.actionsBound = true;
-	};
 
 
 	GoogleMapPhotoSet.prototype.View = (function() {
@@ -73,8 +70,11 @@ hw.modules.Flickr.GoogleMapPhotoSet = (function($) {
 				document.getElementById(self.model.$elem.attr("id")),
 				self.mapOptions);
 
+			//If we have a map object, add stuff to it
 			if(self.map) {
 				self.addPhotos();
+				self.addCarousel();
+				self.bindEvents();
 			}
 		};
 
@@ -86,19 +86,14 @@ hw.modules.Flickr.GoogleMapPhotoSet = (function($) {
 				for(var i=0; i<self.model.data.photoset.photo.length; i++) {
 					var photo = self.model.data.photoset.photo[i];
 					if(photo.latitude && photo.longitude) {
-						console.log("has geo: ", photo);
+						//console.log("has geo: ", photo);
 
 						var photoLatLng = new google.maps.LatLng(photo.latitude, 
 																 photo.longitude);
 
 						//Create the info window HTML via Mustache
-						var viewModel = {"photo": photo};
-						var html = Mustache.to_html(hw.templates.Flickr.PhotoSetGalleryOverlay , viewModel);
-						
-						//Create the global infowindow object
-						self.infoWindow = new google.maps.InfoWindow({
-							content: "Loading..."
-						});
+						var infoWindowModel = {"photo": photo};
+						var html = Mustache.to_html(hw.templates.Flickr.PhotoSetGalleryOverlay , infoWindowModel);
 
 						//Create the marker
 						var marker = new google.maps.Marker({
@@ -108,24 +103,60 @@ hw.modules.Flickr.GoogleMapPhotoSet = (function($) {
 						});
 
 						marker.html = html;
-						//Add marker/info object to array
-						self.photoMarkers.push(marker);
+						
+						var photoObj = { "marker": marker,
+										 "photo" : photo };
+
+						
+						self.photoMarkers.push(photoObj);
 
 					}
 				}
 
-				self.bindEvents();
+				//Center the map after we add the markers
 				self.autoCenter();
 			}
 		};
 
-		View.prototype.autoCenter = function() {
+
+		View.prototype.addCarousel = function addCarousel() {
+			var self = this;
+
+			self.photos = [];
+			$.each(self.photoMarkers, function(index, obj) {
+				if(obj.photo) {
+					obj.photo.index = index;
+					self.photos.push(obj.photo);
+				}
+			});
+
+			var carouselId = "photoset-carousel-"+self.model.setId;
+			var viewModel = { "photos" : self.photos,
+							  "carouselId"  : carouselId };
+			var html = Mustache.to_html(hw.templates.Flickr.PhotoSetCarousel, viewModel);
+			self.model.$elem.after(html);
+			
+
+			var $wrap = $('.carousel-wrap');
+			
+			$(function() {
+				$("."+carouselId).jCarouselLite({
+					btnNext: ".next",
+					btnPrev: ".prev",
+					visible: 11
+				});
+			});
+			
+			
+		};
+
+		View.prototype.autoCenter = function autoCenter() {
 			var self = this;
 			
 			var bounds = new google.maps.LatLngBounds();
 
-			$.each(self.photoMarkers, function (index, marker) {
-				bounds.extend(marker.position);
+			$.each(self.photoMarkers, function (index, obj) {
+				bounds.extend(obj.marker.position);
 			});
 
 			self.map.fitBounds(bounds);
@@ -133,12 +164,20 @@ hw.modules.Flickr.GoogleMapPhotoSet = (function($) {
 
 		View.prototype.bindEvents = function() {
 			var self = this;
+			
+			//Create the global infowindow object
+			self.infoWindow = new google.maps.InfoWindow({
+				content: "Loading..."
+			});
 
-			$.each(self.photoMarkers, function (index, marker) {
-				google.maps.event.addListener(marker, 'click', function() {
+			$.each(self.photoMarkers, function (index, obj) {
+				
+				google.maps.event.addListener(obj.marker, 'click', function() {
 					self.infoWindow.setContent(this.html);
 					self.infoWindow.open(self.map, this);
 				});
+
+
 			});
 
 			$('.fancybox-thumb').fancybox({
@@ -150,6 +189,19 @@ hw.modules.Flickr.GoogleMapPhotoSet = (function($) {
 				prevEffect: "none"
 			});
 
+			self.model.$parent.delegate("a.carousel-thumb", "mouseover click", function(event) {
+				var $elem = $(this);
+				var markerIndex = $elem.data("marker-index");
+				self.map.setZoom(10);
+				google.maps.event.trigger(self.photoMarkers[markerIndex].marker, "click");
+				return false;
+			});
+
+			self.model.$parent.delegate(".flickr-map-carousel", "mouseout", function(event) {
+				self.infoWindow.close();
+				self.autoCenter();
+				return false;
+			});
 
 		};
 		return View;
